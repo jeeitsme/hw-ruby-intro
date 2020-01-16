@@ -4,10 +4,10 @@
 
 def sum arr
   # YOUR CODE HERE
-	# arr.sum
-  result = 0
-  arr.each {|x| result = result + x}
-  result 
+	arr.sum
+  #result = 0
+  #arr.each {|x| result = result + x}
+  #result 
 end
 
 def max_2_sum arr
@@ -25,7 +25,7 @@ end
 
 def sum_to_n? arr, n
   # YOUR CODE HERE
-	arr.combination(2) { |c| retrun true if c.sum == n}
+	arr.combination(2) { |c| return true if c.sum == n}
 	false
 end
 
@@ -50,5 +50,18 @@ end
 
 class BookInStock
 # YOUR CODE HERE
-	
+attr_accessor :isbn, :price
+
+	def initialize isbn, price
+		raise ArgumentError if isbn.empty? || price <= 0
+		# raise ArgumentError if isbn.to_s.strip.empty? || price <= 0
+		@isbn = isbn
+		@price = price
+	end
+	def price_as_string
+		format = "$%.2f" % @price
+		format
+		#format("$%.2f", @price)
+		
+	end
 end
